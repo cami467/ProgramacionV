@@ -1,0 +1,37 @@
+<!-- accounts/templates/accounts/login.html -->
+{% extends 'accounts/base.html' %}
+<!-- Extiende de una plantilla base, para reutilizar cabecera, estilos y estructura común -->
+{% block content %}
+<div class='row justify-content-center'>
+    <div class='col-md-5'>
+        <div class='card shadow'>
+            <div class='card-body'>
+                 <!-- Título del formulario -->
+                <h2 class='text-center mb-4'>Iniciar sesion</h2>
+                <!-- Si existe una variable 'error' en el contexto, se muestra un mensaje de alerta -->
+                {% if error %}
+                <div class='alert alert-danger'>{{ error }}</div>
+                {% endif %}
+                    <!-- Formulario de login -->
+                <form method='POST'>
+                    {% csrf_token %}
+                    <!-- Inserta el token CSRF para proteger el formulario contra ataques -->
+                    {{ form.as_p }}
+                     <!-- Renderiza automáticamente los campos del formulario como párrafos (<p>) -->
+                    <div class='d-grid mt-3'>
+                          <!-- Botón para enviar el formulario -->
+                        <button type='submit' class='btn btn-success'>
+                            Ingresar
+                        </button>
+                    </div>
+                </form>
+                 <!-- Enlace para registrarse si el usuario no tiene cuenta -->
+                <p class='text-center mt-3'>
+                    No tienes cuenta?
+                    <a href='{% url "register" %}'>Registrate</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
