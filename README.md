@@ -1,7 +1,7 @@
 # Sistema de Registro y Login — Django
 
 # Datos
-- Alumna: Camila Noel Benitez Aguilera
+- ALUMNA: Camila Noel Benitez Aguilera
 - Materia: Programación 5
 - Fecha de revisión: [26-03-2026]
 
